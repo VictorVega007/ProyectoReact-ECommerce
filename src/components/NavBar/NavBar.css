@@ -1,0 +1,58 @@
+.NavBar {
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+}
+
+.Logo {
+    width: 20%;
+}
+
+.ImgLogo {
+    max-width: 100px;
+    margin: 5%;
+}
+
+.Menu {
+    width: 80%;
+    display: flex;
+    align-content: space-around;
+    
+}
+
+.MenuItems {
+    background-color: aliceblue;
+    margin: 20px;
+    border-radius: 10px;
+    height: 10vh;
+    transition: 1s;
+}
+
+.MenuItems:hover {
+    background-color: #da4a54;
+}
+
+.Text {
+    width: 100%;
+    text-decoration: none;
+    color: #454045;
+    text-align: center;
+    padding-top: 3%;
+    transition: 1s;
+}
+
+.Text:hover {
+    color: #f1f4f6;
+}
+
+.Cart {
+    width: 20%;
+}
+
+.CartImg {
+    max-width: 40px;
+}
+
+.Counter {
+    margin-left: 5%;
+}
