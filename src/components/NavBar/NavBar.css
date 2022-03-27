@@ -44,15 +44,3 @@
 .Text:hover {
     color: #f1f4f6;
 }
-
-.Cart {
-    width: 20%;
-}
-
-.CartImg {
-    max-width: 40px;
-}
-
-.Counter {
-    margin-left: 5%;
-}

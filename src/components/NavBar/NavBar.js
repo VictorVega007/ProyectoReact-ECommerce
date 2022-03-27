@@ -1,4 +1,5 @@
 import './NavBar.css'
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
     const arr = ['Menu', 'MenuItems'];
@@ -21,10 +22,7 @@ const NavBar = () => {
             <a className = 'Text' href={'.'}>Baterías</a>
             </div>
         </div>
-        <div className = 'Cart'>
-            <img className = 'CartImg' src='./images/shopping-cart.png'  alt='cart'/>
-            <span className = 'Counter'>0</span>
-        </div>
+            <CartWidget />
         </div>
     )
 }
