@@ -1,12 +1,18 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
+import { Fragment } from 'react';
 
 const NavBar = () => {
     const arr = ['Menu', 'MenuItems'];
     return (
-        <div className = 'NavBar'>
+        <Fragment>
         <div className = 'Logo'>
+            <div>
             <img className = 'ImgLogo' src={'./images/logo.png'} alt='logo' />
+            </div>
+            <div>
+                <p className = 'ShopName'>WOODSTOCK SHOP</p>
+            </div>
         </div>
         <div className = 'Menu'>
             <div className = {arr.join(' ')}>
@@ -23,7 +29,7 @@ const NavBar = () => {
             </div>
         </div>
             <CartWidget />
-        </div>
+        </Fragment>
     )
 }
 

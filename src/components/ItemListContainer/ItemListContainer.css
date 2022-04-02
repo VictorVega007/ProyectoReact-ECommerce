@@ -1,3 +1,9 @@
 .Title {
     color: #da4a54;
 }
+
+.ListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

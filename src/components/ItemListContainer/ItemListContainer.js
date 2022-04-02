@@ -9,7 +9,7 @@ const ItemListContainer = (props) => {
       }
 
     return (
-        <div>
+        <div className='ListContainer'>
         <h1 className = 'Title'>{props.greeting}</h1>
         <ItemCount stock={5} initial={1} onAdd={handleOnAdd} />
         </div>

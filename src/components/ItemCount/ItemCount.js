@@ -1,9 +1,9 @@
-import { useState } from "react";
+import './ItemCount.css';
+import { Fragment, useState } from "react";
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial);
-    // const [newStock, setStock] = useState(stock);
 
     const increment = () => {
         if(count < stock) {
@@ -19,16 +19,22 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
 
-
     return (
-        <div>
-            <button onClick={increment}>+</button>
-            <p>{count}</p>
-            <button onClick={decrement}>-</button>
+        <Fragment>
+            <div className = 'ItemCountContainer'>
             <div>
-            <button onClick = {() => onAdd(count) } >Agregar al carrito</button>
+            <p>Guitarra PRS</p>
             </div>
-        </div>
+            <div className = 'ItemCount'>
+            <button className = 'ButtonCount ButtonCountAdd' onClick = {increment}>+</button>
+            <p className = 'ProductCounter'>{count}</p>
+            <button className = 'ButtonCount ButtonCountMinus' onClick = {decrement}>-</button>
+            </div>
+            <div>
+            <button className = 'ButtonToAddProduct ButtonCountAdd' onClick = {() => onAdd(count)} >Agregar al carrito</button>
+            </div>
+            </div>
+        </Fragment>
     )
 }
 
