@@ -1,5 +1,5 @@
 .NavBar {
-    background-color: aquamarine;
+    background-color: rgba(2,0,36,1);
     display: flex;
     align-items: center;
 }
@@ -20,7 +20,7 @@
     font-family: 'Rock 3D', cursive;
     margin-top: 0px;
     font-size: 18px;
-    color:#454045;
+    color:#f1f4f6;
     font-weight: bold;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .MenuItems {
-    background-color: aliceblue;
+    background-color: #f1f4f6;
     margin: 20px;
     border-radius: 10px;
     height: 5vh;

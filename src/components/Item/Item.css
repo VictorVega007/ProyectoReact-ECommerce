@@ -1,0 +1,21 @@
+.Card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(217, 217, 223);
+    margin: 5% 0 5% 0;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.CardImg {
+    max-height: 230px;
+    background: rgb(15, 11, 88);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(132,207,207,0) 35%, rgba(0,212,255,1) 100%);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.Props {
+    height: 1px;
+}
+
