@@ -1,8 +1,8 @@
-// import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { Fragment } from 'react';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
         <NavBar />
       </header>
       <ItemListContainer className = 'Title' greeting = {'Hola bienvenid@ a la tienda!'}/>
+      <ItemDetailContainer />
     </Fragment>
   );
 }

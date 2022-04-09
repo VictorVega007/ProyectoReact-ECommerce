@@ -1,12 +1,13 @@
 .ItemCountContainer {
     background-color:rgb(217, 217, 223);
-    width: 25%;
+    width: 100%;
     height: 20vh;
-    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-end-start-radius: 10px;
+    border-end-end-radius: 10px;
 }
 
 .ItemCount {

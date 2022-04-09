@@ -23,7 +23,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <Fragment>
             <div className = 'ItemCountContainer'>
             <div>
-            <p>Guitarra PRS</p>
+            <p>Elige la cantidad de tu producto</p>
             </div>
             <div className = 'ItemCount'>
             <button className = 'ButtonCount ButtonCountAdd' onClick = {increment}>+</button>

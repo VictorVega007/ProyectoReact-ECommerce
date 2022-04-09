@@ -1,0 +1,60 @@
+.ItemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.Detail {
+    background-color: rgb(217, 217, 223);
+    width: 100%;
+    text-align: center;
+    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+}
+
+.CardItemDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.Picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(80, 75, 69);
+    width: 100%;
+}
+
+.DetailImg {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(132,207,207,0) 35%, rgba(0,212,255,1) 100%);
+    height: 270px;
+    width: 100%;
+}
+
+.DescriptionContainer {
+    background-color: rgb(217, 217, 223);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 0 0; 
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.Price {
+    background-color: #da4a54;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}

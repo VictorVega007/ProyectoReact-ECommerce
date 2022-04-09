@@ -2,11 +2,12 @@
 const products = [
     {
         id: 1, 
-        name: 'PRS Guitar', 
+        name: 'PRS Guitar / SE STANDARD 24-08', 
         price: 2500, 
         category: 'Guitarras', 
         img: 'https://d159anurvk4929.cloudfront.net/blog-legacy/2BestSellers2018.png',
-        stock: 20
+        stock: 20,
+        description: 'Guitarra signature marca PRS Guitar, elaborada con madera Mahogany en toda su estructura corporal. Cuenta de 24 trastes en su estructura de cuello. Pastillas modelo TCI “S” y tres módulos de control de volumen, brillo y bajos.'
     },
     {
         id: 2, 
@@ -30,6 +31,14 @@ export const getProducts = () => {
     return new Promise (resolve =>{
         setTimeout(() => {
             resolve(products)
+        }, 2000)
+    })
+}
+
+export const getItemDetail = (id) => {
+    return new Promise (resolve =>{
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === id))
         }, 2000)
     })
 }
