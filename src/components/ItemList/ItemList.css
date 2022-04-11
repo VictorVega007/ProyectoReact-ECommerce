@@ -1,6 +1,11 @@
 .CardContainer {
+    background-color: rgb(197, 192, 186);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+.CardItem {
+    
 }

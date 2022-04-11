@@ -48,6 +48,9 @@
 }
 
 .ButtonToAddProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     width: 200px;
     height: 5vh;
@@ -56,6 +59,8 @@
     background-color: #da4a54;
     transition: 0.3s;
     font-family: 'Comfortaa', cursive;
+    text-decoration: none;
+    color: aliceblue;
 }
 
 .ButtonToAddProduct:hover {

@@ -1,14 +1,18 @@
+import './ItemDetailContainer.css'
 import { useState, useEffect } from "react";
 import { getItemDetail } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState();
     const [loading, setLoading] = useState(true);
 
+    const { productId } = useParams ()
+
     useEffect(() => {
-        getItemDetail(1).then(item => {
+        getItemDetail(productId).then(item => {
             setProduct(item);
         }).catch(error => {
             console.log(error);
@@ -19,10 +23,10 @@ const ItemDetailContainer = () => {
             setProduct()
         })
 
-    }, []);
+    }, [productId]);
 
     return (
-        <>
+        <div className = 'Messages'>
             {
                 loading ?
                     <h2>Cargando productos...</h2> :
@@ -31,7 +35,7 @@ const ItemDetailContainer = () => {
                     <h2>El producto no existe</h2>
             }
             
-        </>
+        </div>
     )
 
 }

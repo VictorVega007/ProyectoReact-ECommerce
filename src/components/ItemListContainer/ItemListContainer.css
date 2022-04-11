@@ -3,7 +3,10 @@
 }
 
 .ListContainer {
+
+    background-color: rgb(197, 192, 186);
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 77vh;
 }
