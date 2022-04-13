@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a ECommerce project created with React JS. Currently, it is being building and every updating is pushing to repository every week.
+
+Here can be found the project's Gif.
+
+![gif-app](https://user-images.githubusercontent.com/42446799/163073042-e19194d3-92da-4767-b222-c80fb84be330.gif)
 
 ## Available Scripts
 
@@ -39,4 +43,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-![gif-app](https://user-images.githubusercontent.com/42446799/163073042-e19194d3-92da-4767-b222-c80fb84be330.gif)
