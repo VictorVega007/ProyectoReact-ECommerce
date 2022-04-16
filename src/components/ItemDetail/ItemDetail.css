@@ -59,3 +59,24 @@
     font-size: 20px;
     font-weight: 700;
 }
+
+.Link {
+    border-radius: 10px;
+    height: 5vh;
+    background-color: #da4a54;
+    color: #f1f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid #f1f4f6;
+    width: 35%;
+    margin: 5%;
+    transition: 0.5s;
+}
+
+.Link:hover{
+    background-color: #f1f4f6;
+    border: #da4a54 1px solid;
+    color: #da4a54;
+}
