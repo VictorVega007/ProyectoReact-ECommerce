@@ -3,7 +3,9 @@ import CartWidget from '../CartWidget/CartWidget';
 import { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getCategories } from '../../asyncmock';
+// import { getCategories } from '../../asyncmock';
+import { getProductsDB } from '../../services/firebase';
+import { getDocs, collection, orderBy } from 'firebase/firestore';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 
@@ -12,9 +14,17 @@ const NavBar = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect (() => {
-        getCategories().then(categories => {
-            setCategories(categories)
-        });
+        // getCategories().then(categories => {
+        //     setCategories(categories)
+        // });
+
+        getDocs(collection(getProductsDB, 'categories'), orderBy ('id', 'asc')).then(response => {
+            const categories = response.docs.map(doc => {
+                return {id: doc.id, ...doc.data()}
+            })
+            setCategories(categories);
+        })
+
     }, []);
 
     const { cart } = useContext(CartContext);
