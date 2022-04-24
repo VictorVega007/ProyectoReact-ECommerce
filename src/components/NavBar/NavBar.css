@@ -81,3 +81,9 @@
     color: #f1f4f6;
     border: #da4a54 solid 1px;
 }
+
+.CartText {
+    color: #f1f4f6;
+    width: 18%;
+    text-align: center;
+}

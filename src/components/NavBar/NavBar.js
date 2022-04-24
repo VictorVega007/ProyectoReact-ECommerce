@@ -4,9 +4,10 @@ import { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCategories } from '../../asyncmock';
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
 const NavBar = () => {
-    // const arr = ['Menu', 'MenuItems'];
 
     const [categories, setCategories] = useState([]);
 
@@ -16,6 +17,7 @@ const NavBar = () => {
         });
     }, []);
 
+    const { cart } = useContext(CartContext);
 
 
     return (
@@ -27,31 +29,13 @@ const NavBar = () => {
             </Link>
         </div>
 
-        <div className = 'Menu'>
-            {/* 
-            <div className = {arr.join(' ')}>
-                <a className = 'Text' href={'.'}>Guitarras</a>
-            </div>
-            <div className = {arr.join(' ')}>
-                <a className = 'Text' href={'.'}>Teclados</a>
-            </div>
-            <div className = {arr.join(' ')}>
-                <a className = 'Text' href={'.'}>Bajos Eléctricos</a>
-            </div>
-            <div className = {arr.join(' ')}>
-                <a className = 'Text' href={'.'}>Baterías</a>
-            </div> */}
-
-            
+        <div className = 'Menu'>   
             <NavLink to = '/' className = {({ isActive }) => isActive ? 'MenuItemsActive' : 'Text'}>Productos</NavLink>
-            
-            
             { categories.map(cat => <NavLink key = {cat.id} to = {`/category/${cat.id}`} 
                 className = {({isActive}) => isActive ? 'MenuItemsActive' : 'Text'}
-            >{cat.description}</NavLink>)}
-            
+            >{cat.description}</NavLink>)}   
         </div>
-            <CartWidget />
+            { cart.length === 0 ? <p className='CartText'>Agrega algún item</p> : <CartWidget />}
         </Fragment>
     )
 }

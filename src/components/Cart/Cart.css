@@ -1,0 +1,82 @@
+.CartTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+}
+
+.CartCheckoutContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.CartCheckout {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.CartImgs {
+    width: 100%;
+    padding: 5% 5% 5% 20%;
+    margin: 5%;
+}
+
+.ProductName {
+    width: 300%;
+}
+
+.CartButton {
+    width: 15%;
+    height: 20px;
+}
+
+.ResumeContainer {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #da4a54;
+    padding-bottom: 20px;
+}
+
+.ProductDetail {
+    text-align: center;
+    width: 37%;
+}
+
+.ItemsCheckout {
+    text-align: center;
+    width: 12.4%;
+}
+
+.TotalPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #da4a54;
+    border-top: 1px solid #da4a54;
+    height: 7vh;
+}
+
+.LinkToIndex {
+    border-radius: 10px;
+    height: 5vh;
+    background-color: #da4a54;
+    color: #f1f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid #f1f4f6;
+    width: 13%;
+    margin: 1%;
+    transition: 0.5s;
+}
+
+.LinkToIndex:hover {
+    background-color: #f1f4f6;
+    border: #da4a54 1px solid;
+    color: #da4a54;
+}
