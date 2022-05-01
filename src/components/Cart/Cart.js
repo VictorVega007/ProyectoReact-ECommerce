@@ -4,8 +4,7 @@ import { useContext } from "react";
 import CartContext from "../../context/CartContext";
 
 const Cart = () => {
-
-    const { cart, removeItem } = useContext(CartContext);
+    const { cart, total, removeItem } = useContext(CartContext);
 
     if (cart.length === 0) {
         return (
@@ -44,8 +43,9 @@ const Cart = () => {
             </div>
             <div className='TotalPrice'>
                 <div className='ItemsCheckout'>TOTAL: </div>
-                <div className='ItemsCheckout'>$ {cart.reduce((acc, el) => acc + el.quantity * el.price, 0)}</div>
+                <div className='ItemsCheckout'>$ {total()}</div>
             </div>
+            <Link to='/form' className = 'LinkToIndex'>Generar Orden</Link>
         </>
     )
 }
