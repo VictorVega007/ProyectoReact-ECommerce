@@ -80,3 +80,13 @@
     border: #da4a54 1px solid;
     color: #da4a54;
 }
+
+.ButtonCheckout {
+    display: flex;
+    justify-content: center;
+}
+
+.FontButton {
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+}

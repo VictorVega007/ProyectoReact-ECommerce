@@ -1,25 +1,23 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-useless-escape */
 import './Form.css'
 import { useState, useContext } from "react";
 import CartContext from "../../context/CartContext";
 import { getDocs, writeBatch, query, where, collection, documentId, addDoc } from 'firebase/firestore';
 import { getProductsDB } from '../../services/firebase';
 import swal from 'sweetalert'; 
+import Cart from '../Cart/Cart';
+import { useForm } from 'react-hook-form';
 
 const Form = () => {
-    // const [ input, setInput ] = useState('');
+    const [ input, setInput ] = useState({name: '', lastname: '', email: '', phone: '', address: ''});
     const [ loading, setLoading ] = useState(false);
-    const { cart, total } = useContext(CartContext);
-    
-    const [ name, setName ] = useState('');
-    const [ lastname, setLastname] = useState('');
-    const [ email, setEmail ] = useState('');
-    const [ phone, setPhone ] = useState ('');
-    const [ address, setAddress ] = useState('');
-    const [ city, setCity ] = useState('');
+    let { cart, total, clearCart } = useContext(CartContext);
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
+    const onSubmit = (input) => {
+        setInput(input);
+        console.log(input)
     }
 
     const orderDetail = () => {
@@ -27,14 +25,7 @@ const Form = () => {
 
         const user = {
             items: cart,
-            buyer: {
-                name: name,
-                lastname: lastname,
-                email: email,
-                phone: phone,
-                address: address,
-                city: city
-            },
+            buyer: {...input},
             total: total(),
             date: new Date()
         };
@@ -76,6 +67,7 @@ const Form = () => {
                     button: true,
                     dangerMode: true
                 });
+                clearCart()
             })
             .catch(error => {
                 console.log(error)
@@ -100,33 +92,59 @@ const Form = () => {
         )
     }
 
+    if (cart.length === 0) {
+        return <Cart/>
+    }
+
     return (
         <>
-        <form id='Form' onSubmit={handleSubmit} className = 'Form'>
+        <form id='Form' onSubmit={handleSubmit(onSubmit)} className = 'Form'>
             <h1>Realiza tu orden</h1>
-            <label>
+            <label htmlFor='name' className='LabelBlock'>
                 <h3>Nombre</h3>
-                <input className = 'Inputs' type = 'text' placeholder = 'Nombre' value={name} onChange={(e) => setName(e.target.value)} />
+                <input {...register('name', { required: true , pattern:(/^[A-Za-z]+$/i ) })} className = 'Inputs' placeholder = 'Nombre'/>
+                    {errors.name?.type === 'required' && 'Se requiere su nombre'}
+                    {errors.name?.type === 'pattern' && 'Sólo letras son válidas'}
             </label>
-            <label>
+            <label htmlFor='lastname' className='LabelBlock'>
                 <h3>Apellido</h3>
-                <input className = 'Inputs' type = 'text' placeholder = 'Apellido' value={lastname} onChange={(e) => setLastname(e.target.value)}/>
+                <input {...register('lastname', { required: true , pattern:(/^[A-Za-z]+$/i ) })} className = 'Inputs' placeholder = 'Apellido'/>
+                    {errors.lastname?.type === 'required' && 'Se requiere su Apellido'}
+                    {errors.lastname?.type === 'pattern' && 'Sólo letras son válidas'}
             </label>
-            <label>
+            <label htmlFor='email' className='LabelBlock'>
                 <h3>Email</h3>
-                <input className = 'Inputs' type = 'text' placeholder = 'Ej. nombre@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input id='email' {...register('email', { required: true, pattern: (/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) })} className = 'Inputs' placeholder = 'Ej. nombre@gmail.com'/>
+                    {errors.email?.type === 'required' && 'Ingresar un correo' }
+                    {errors.email?.type ===  'pattern' && 'Ingresar un correo válido'}
             </label>
-            <label>
+            <label htmlFor='emailConfirm' className='LabelBlock'>
+                <h3>Confirme correo</h3>
+                <input id='emailConfirm' {...register('emailConfirm', { 
+                        required: true, 
+                        pattern: (/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) })} className = 'Inputs' placeholder = 'Ej. nombre@gmail.com'/>
+                    {errors.emailConfirm?.type === 'required' && 'Ingrese nuevamente su correo' }
+                    {errors.emailConfirm?.type === 'pattern' && 'Su correo no coincide' }
+            </label>
+            <label htmlFor='phone' className='LabelBlock'>
                 <h3>Teléfono</h3>
-                <input className = 'Inputs' type = 'text' placeholder = 'Telefono' value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                <input {...register('phone', { required: true, pattern: (/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/) })} className = 'Inputs' placeholder = 'Telefono'/> 
+                    {errors.phone?.type === 'required' && 'Ingrese un teléfono de contacto'}
+                    {errors.phone?.type === 'pattern' && 'Ingrese solo números'}
             </label>
-            <label className='Address'>
+            <label htmlFor='address' className='Address LabelBlock'>
                 <h3>Dirección</h3>
-                <input className = 'Inputs AddressMargin' type = 'text' placeholder = 'Número de casa / departamento' value={address} onChange={(e) => setAddress(e.target.value)}/>
-                <input className = 'Inputs AddressMargin' type = 'text' placeholder = 'Ciudad / País' value={city} onChange={(e) => setCity(e.target.value)}/>
+                <input {...register('address', { required: true })} className = 'Inputs AddressMargin' placeholder = 'Número de casa / departamento'/>
+                    {errors.address?.type === 'required' && 'Ingrese una dirección válida'}
             </label>
             <div className = 'ButtonAlign'>
-                <button className = 'ButtonOrder' type = 'button' onClick={orderDetail}>Realizar orden</button>
+                <button  className={(input.emailConfirm == input.email)?'hidden': 'visible ButtonOrder'}> Validar datos </button>
+            </div>
+            <div className={(input.emailConfirm == null || input.emailConfirm == input.email)?'hidden': 'visible'}>
+                <h4>La dirección de correo no coincide, intete nuevamente.</h4> 
+            </div>
+            <div className = 'ButtonAlign'>
+                <button className={(input.emailConfirm == input.email)?'ButtonOrder': 'hidden'} type = 'button' onClick={()=> orderDetail()} >Realizar orden</button>
             </div>
         </form>
         </>

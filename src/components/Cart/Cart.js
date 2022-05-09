@@ -4,7 +4,7 @@ import { useContext } from "react";
 import CartContext from "../../context/CartContext";
 
 const Cart = () => {
-    const { cart, total, removeItem } = useContext(CartContext);
+    const { cart, total, removeItem, clearCart } = useContext(CartContext);
 
     if (cart.length === 0) {
         return (
@@ -45,7 +45,10 @@ const Cart = () => {
                 <div className='ItemsCheckout'>TOTAL: </div>
                 <div className='ItemsCheckout'>$ {total()}</div>
             </div>
-            <Link to='/form' className = 'LinkToIndex'>Generar Orden</Link>
+            <div className='ButtonCheckout'>
+                <Link to='/form' className = 'LinkToIndex'>Generar Orden</Link>
+                <button className='LinkToIndex FontButton' onClick={()=> clearCart()}>Vaciar Carrito</button>
+            </div>    
         </>
     )
 }

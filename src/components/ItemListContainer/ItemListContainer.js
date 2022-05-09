@@ -1,38 +1,40 @@
-import './ItemListContainer.css'
+import '../Form/Form.css';
+import '../Cart/Cart.css'
+import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
-// import { getProducts } from '../../asyncmock';
-import { getDocs, collection, query, where, orderBy  } from 'firebase/firestore'
-import { getProductsDB } from '../../services/firebase';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getProducts } from '../../services/firebase/firestore';
+import { useAsync } from '../../hooks/useAsync';
 
 const ItemListContainer = (props) => {
     const [products, setProducts] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     const { categoryId }  = useParams();
 
-    useEffect (() => {
-        // getProducts(categoryId).then(p => {
-        //     setProducts(p)
-        // }).catch(error => {
-        //     console.log(error)
-        // })     
+    useAsync(
+        setLoading,
+        () => getProducts(categoryId),
+        setProducts,
+        () => console.log('Error en el componente'),
+        [categoryId]
+    );
 
-        const collectionRef = categoryId 
-            ? query(collection(getProductsDB, 'products'), where('category', '==', categoryId)) 
-            : query(collection(getProductsDB, 'products'), orderBy('name', 'asc'))
-            // : collection(getProductsDB, 'products');
+    if (loading) {
+        return (
+            <div className='TextOrder'>
+                <h1>Cargando productos</h1>
+            </div>
+        )
+    }
 
-
-        getDocs(collectionRef).then(response => {
-            
-            const products = response.docs.map(doc => {
-                return {id: doc.id, ...doc.data()}
-            })
-            setProducts(products);
-        })
-
-    }, [categoryId])
+    if (products.length === 0) {
+        return (
+            <div className='CartTitle'>
+                <h1>No hay productos</h1>
+            </div>
+        )
+    }
 
     return (
         <div className='ListContainer'>
