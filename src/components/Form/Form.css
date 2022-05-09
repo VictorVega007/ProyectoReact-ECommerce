@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1%;
+    margin: 4px;
 }
 
 .Inputs {
@@ -26,7 +26,7 @@
 }
 
 .AddressMargin {
-    margin-bottom: 1%;
+    margin-bottom: 4px;
 }
 
 .ButtonAlign {
@@ -71,4 +71,9 @@
 
 .visible{
     display: block;
+}
+
+.ErrorMessage {
+    font-weight: bold;
+    color: #da4a54;
 }

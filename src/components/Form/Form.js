@@ -103,45 +103,45 @@ const Form = () => {
             <label htmlFor='name' className='LabelBlock'>
                 <h3>Nombre</h3>
                 <input {...register('name', { required: true , pattern:(/^[A-Za-z]+$/i ) })} className = 'Inputs' placeholder = 'Nombre'/>
-                    {errors.name?.type === 'required' && 'Se requiere su nombre'}
-                    {errors.name?.type === 'pattern' && 'Sólo letras son válidas'}
+                    {errors.name?.type === 'required' && <p className='ErrorMessage'>Se requiere su nombre</p>}
+                    {errors.name?.type === 'pattern' && <p className='ErrorMessage'>Sólo letras son válidas</p>}
             </label>
             <label htmlFor='lastname' className='LabelBlock'>
                 <h3>Apellido</h3>
                 <input {...register('lastname', { required: true , pattern:(/^[A-Za-z]+$/i ) })} className = 'Inputs' placeholder = 'Apellido'/>
-                    {errors.lastname?.type === 'required' && 'Se requiere su Apellido'}
-                    {errors.lastname?.type === 'pattern' && 'Sólo letras son válidas'}
+                    {errors.lastname?.type === 'required' && <p className='ErrorMessage'>Se requiere su Apellido</p>}
+                    {errors.lastname?.type === 'pattern' && <p className='ErrorMessage'>Sólo letras son válidas</p>}
             </label>
             <label htmlFor='email' className='LabelBlock'>
                 <h3>Email</h3>
                 <input id='email' {...register('email', { required: true, pattern: (/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) })} className = 'Inputs' placeholder = 'Ej. nombre@gmail.com'/>
-                    {errors.email?.type === 'required' && 'Ingresar un correo' }
-                    {errors.email?.type ===  'pattern' && 'Ingresar un correo válido'}
+                    {errors.email?.type === 'required' && <p className='ErrorMessage'>Ingresar un correo</p> }
+                    {errors.email?.type ===  'pattern' && <p className='ErrorMessage'>Ingresar un correo válido</p>}
             </label>
             <label htmlFor='emailConfirm' className='LabelBlock'>
                 <h3>Confirme correo</h3>
                 <input id='emailConfirm' {...register('emailConfirm', { 
                         required: true, 
                         pattern: (/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) })} className = 'Inputs' placeholder = 'Ej. nombre@gmail.com'/>
-                    {errors.emailConfirm?.type === 'required' && 'Ingrese nuevamente su correo' }
-                    {errors.emailConfirm?.type === 'pattern' && 'Su correo no coincide' }
+                    {errors.emailConfirm?.type === 'required' && <p className='ErrorMessage'>Ingrese nuevamente su correo</p>}
+                    {errors.emailConfirm?.type === 'pattern' && <p className='ErrorMessage'>Su correo no coincide</p>}
             </label>
             <label htmlFor='phone' className='LabelBlock'>
                 <h3>Teléfono</h3>
                 <input {...register('phone', { required: true, pattern: (/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/) })} className = 'Inputs' placeholder = 'Telefono'/> 
-                    {errors.phone?.type === 'required' && 'Ingrese un teléfono de contacto'}
-                    {errors.phone?.type === 'pattern' && 'Ingrese solo números'}
+                    {errors.phone?.type === 'required' && <p className='ErrorMessage'>Ingrese un teléfono de contacto</p>}
+                    {errors.phone?.type === 'pattern' && <p className='ErrorMessage'>Ingrese solo números</p>}
             </label>
             <label htmlFor='address' className='Address LabelBlock'>
                 <h3>Dirección</h3>
                 <input {...register('address', { required: true })} className = 'Inputs AddressMargin' placeholder = 'Número de casa / departamento'/>
-                    {errors.address?.type === 'required' && 'Ingrese una dirección válida'}
+                    {errors.address?.type === 'required' && <p className='ErrorMessage'>Ingrese una dirección válida</p>}
             </label>
             <div className = 'ButtonAlign'>
-                <button  className={(input.emailConfirm == input.email)?'hidden': 'visible ButtonOrder'}> Validar datos </button>
+                <button  className={(input.emailConfirm == input.email)?'hidden': 'visible ButtonOrder'}> Confirmar datos </button>
             </div>
             <div className={(input.emailConfirm == null || input.emailConfirm == input.email)?'hidden': 'visible'}>
-                <h4>La dirección de correo no coincide, intete nuevamente.</h4> 
+                <h4 className='ErrorMessage'>La dirección de correo no coincide, intete nuevamente.</h4> 
             </div>
             <div className = 'ButtonAlign'>
                 <button className={(input.emailConfirm == input.email)?'ButtonOrder': 'hidden'} type = 'button' onClick={()=> orderDetail()} >Realizar orden</button>
