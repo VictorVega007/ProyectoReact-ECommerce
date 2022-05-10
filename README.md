@@ -66,3 +66,4 @@ Igualmente, se encarga de crear el documento correspondiente a la orden para ins
 En la carpeta 'CartContext' se encuentra la función del 'ContextProvider' que contiene todas las funciones correspondientes a agregar items al carrito, eliminar un items o todos los items del carrito, obtener el precio total de la orden y obtener la cantidad de productos seleccionados por el usuario. Esta función es la que provee o envuelve a toda la app en el archivo 'App.js'.
 
 ## Gif de navegación
+![Screen Recording 2022-05-09 at 22 36 43](https://user-images.githubusercontent.com/42446799/167645882-dbe26fa1-1d27-42cf-9a71-22170989d1e8.gif)
