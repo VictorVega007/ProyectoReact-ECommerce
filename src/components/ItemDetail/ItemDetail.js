@@ -46,7 +46,12 @@ const ItemDetail = ({id, name, img, category, description, price, stock}) => {
                     </div>
                     
                 </div>
-                { isInCart(id) || stock <= 0 ? <Link className='Link' to='/cart'>Ir al carrito de compra </Link> : <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} /> }
+                { isInCart(id) 
+                    ? <Link className='Link' to='/cart'>Ir al carrito de compra </Link> 
+                    : <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} /> &&
+                    stock <= 0 
+                    ?  <Link className='Link' to='/'>Ir al inicio </Link> 
+                    : <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} /> }
             </div>
         </div>
     )

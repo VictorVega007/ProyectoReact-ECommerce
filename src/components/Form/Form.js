@@ -20,7 +20,7 @@ const Form = () => {
         console.log(input)
     }
 
-    const orderDetail = () => {
+    const createOrderDetail = () => {
         setLoading(true);
 
         const user = {
@@ -145,7 +145,7 @@ const Form = () => {
                 <h4 className='ErrorMessage'>La dirección de correo no coincide, intete nuevamente.</h4> 
             </div>
             <div className = 'ButtonAlign'>
-                <button className={(input.emailConfirm == input.email)?'ButtonOrder': 'hidden'} type = 'button' onClick={()=> orderDetail()} >Realizar orden</button>
+                <button className={(input.emailConfirm == input.email)?'ButtonOrder': 'hidden'} type = 'button' onClick={()=> createOrderDetail()} >Realizar orden</button>
             </div>
         </form>
         </>

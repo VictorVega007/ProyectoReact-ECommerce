@@ -1,6 +1,5 @@
 import './ItemDetailContainer.css'
 import { useState, useEffect } from "react";
-// import { getItemDetail } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { getProductsDB } from '../../services/firebase';
@@ -15,8 +14,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        getDoc(doc((getProductsDB), 'products', productId)).then(response =>{
-            
+        getDoc(doc((getProductsDB), 'products', productId)).then(response =>{ 
             const product = {id: response.id, ...response.data()} 
             setProduct(product);
         }).finally(() => { 

@@ -3,7 +3,6 @@ import CartWidget from '../CartWidget/CartWidget';
 import { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import { getCategories } from '../../asyncmock';
 import { getProductsDB } from '../../services/firebase';
 import { getDocs, collection, orderBy } from 'firebase/firestore';
 import { useContext } from 'react';
@@ -14,9 +13,6 @@ const NavBar = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect (() => {
-        // getCategories().then(categories => {
-        //     setCategories(categories)
-        // });
 
         getDocs(collection(getProductsDB, 'categories'), orderBy ('id', 'asc')).then(response => {
             const categories = response.docs.map(doc => {
