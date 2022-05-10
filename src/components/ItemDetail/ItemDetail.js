@@ -39,8 +39,14 @@ const ItemDetail = ({id, name, img, category, description, price, stock}) => {
                 <div className='Price'>
                     <p>Precio</p>
                     <p>USD {price}</p>
+                    <div>
+                        {
+                            stock > 0 ? <p>Stock {stock}</p> : <p>Sin Stock</p>
+                        }
+                    </div>
+                    
                 </div>
-                { isInCart(id) ? <Link className='Link' to='/cart'>Ir al carrito de compra </Link> : <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} /> }
+                { isInCart(id) || stock <= 0 ? <Link className='Link' to='/cart'>Ir al carrito de compra </Link> : <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} /> }
             </div>
         </div>
     )

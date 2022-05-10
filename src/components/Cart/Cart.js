@@ -8,9 +8,9 @@ const Cart = () => {
 
     if (cart.length === 0) {
         return (
-            <div className='CartTitle'>
+            <div className='CartLoading'>
                 <h1>No hay productos en el carrito</h1>
-                <Link className='LinkToIndex' to='/'>Volver al inicio</Link> 
+                <Link className='LinkToIndex' to='/'>Volver al inicio</Link>
             </div>
         )
     }

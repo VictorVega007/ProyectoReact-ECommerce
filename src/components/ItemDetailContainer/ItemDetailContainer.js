@@ -14,13 +14,6 @@ const ItemDetailContainer = () => {
     const { productId } = useParams ()
 
     useEffect(() => {
-        // getItemDetail(productId).then(item => {
-        //     setProduct(item);
-        // }).catch(error => {
-        //     console.log(error);
-        // }).finally(() => {
-        //     setLoading(false);
-        // })
 
         getDoc(doc((getProductsDB), 'products', productId)).then(response =>{
             
@@ -41,7 +34,12 @@ const ItemDetailContainer = () => {
         <div className = 'Messages'>
             {
                 loading ?
-                    <h2>Cargando productos...</h2> :
+                    <>
+                        <div className='SpinnerContainer'>
+                            <h2>Cargando productos...</h2>
+                            <p className='Spinner'></p>
+                        </div> 
+                    </> :
                 product ?
                     <ItemDetail {...product}/> :
                     <h2>El producto no existe</h2>

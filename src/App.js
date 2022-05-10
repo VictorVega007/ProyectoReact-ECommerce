@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Cart from './components/Cart/Cart'
 import Form from './components/Form/Form';
+import Footer from './components/Footer/Footer';
 import { Fragment } from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -31,6 +32,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartContextProvider>
+      <Footer/>
     </Fragment>
   );
 }

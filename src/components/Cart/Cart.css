@@ -1,7 +1,17 @@
+.CartLoading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    height: 400px;
+}
+
 .CartTitle {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2%;
 }
 
@@ -89,4 +99,8 @@
 .FontButton {
     font-size: 16px;
     font-family: 'Comfortaa', cursive;
+}
+
+.FooterHidden {
+    display: none;
 }

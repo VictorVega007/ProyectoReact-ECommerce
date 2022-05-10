@@ -4,6 +4,7 @@
     margin: 2% 10%;
     border-radius: 10px;
     padding: 1%;
+    background-color: rgb(217, 217, 223);
 }
 
 .Address {
@@ -76,4 +77,32 @@
 .ErrorMessage {
     font-weight: bold;
     color: #da4a54;
+}
+
+.SpinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+}
+
+.Spinner {
+    border: 4px solid rgba(0, 0, 0, .1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #da4a54;
+
+    animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

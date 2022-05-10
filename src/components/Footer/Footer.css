@@ -1,0 +1,46 @@
+.FooterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    background-color: black;
+    margin: 0%;
+    color: #f1f4f6;
+}
+
+.Icons {
+    max-width: 30px;
+}
+
+.IconsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+}
+
+.Twitter {
+    margin: 0 10px 0 10px;
+}
+
+.IconsDirection {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.FooterList {
+    list-style: none;
+    display: block;
+}
+
+.FooterLinks {
+    display: inline-block;
+    border-left: 1px solid #f1f4f6;
+    padding: 0 10px;
+}
+
+.FirstLink{
+    border: none;
+}

@@ -23,7 +23,10 @@ const ItemListContainer = (props) => {
     if (loading) {
         return (
             <div className='TextOrder'>
-                <h1>Cargando productos</h1>
+                <div className='SpinnerContainer'>
+                    <h1>Cargando productos</h1>
+                    <p className='Spinner'></p>
+                </div>
             </div>
         )
     }

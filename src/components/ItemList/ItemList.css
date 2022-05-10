@@ -4,8 +4,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-}
-
-.CardItem {
-    
+    min-height: auto;
+    margin-bottom: 100px;
 }

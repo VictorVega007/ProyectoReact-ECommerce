@@ -88,6 +88,7 @@ const Form = () => {
         return (
             <div className='TextOrder'>
                 <h1>Se está generando su orden</h1>
+                <div className='SpinnerContainer'><p className='Spinner'></p></div>
             </div>
         )
     }
